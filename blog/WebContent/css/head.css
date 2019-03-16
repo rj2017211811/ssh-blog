@@ -1,0 +1,32 @@
+.navbar-default {
+	border-color: #e7e7e7;
+	background-color: #1C2327;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #FF0000;
+}
+
+.navbar-default .navbar-nav>li>a:link {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:visited {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #00A0FF;
+}
+
+.navbar-default .navbar-nav>li>a:active {
+	color: green;
+}

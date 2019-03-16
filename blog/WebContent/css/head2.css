@@ -1,0 +1,145 @@
+.navbar-default {
+	border-color: #e7e7e7;
+	background-color: #1C2327;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #FF0000;
+}
+
+.navbar-default .navbar-nav>li>a:link {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:visited {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #00A0FF;
+}
+
+.navbar-default .navbar-nav>li>a:active {
+	color: green;
+}
+
+.article {
+	margin-bottom: 10px;
+	border: 1px solid #EFEFEF;
+}
+
+.img1 {
+	width: 200px;
+	height: 120px;
+	padding: 10px;
+}
+
+.title {
+	background-color: #47505F;
+	padding: 10px;
+	color: white;
+}
+
+.title1 {
+	color: #63BA71;
+	padding: 10px;
+}
+
+.article .read {
+	color: #63BA71;
+}
+
+.publishDate {
+	padding: 10px;
+}
+
+#allArticle {
+	line-height: 30px;
+	padding-right: 30px;
+}
+
+.rightInfo {
+	margin-bottom: 10px;
+	border: 1px solid #EFEFEF;
+	padding: 10px;
+}
+
+.tag1 {
+	background-color: #818181;
+	padding: 5px;
+}
+
+.tag2 {
+	background-color: #5CBEAB;
+	padding: 5px;
+}
+
+.tag3 {
+	background-color: #8DCD8D;
+	padding: 5px;
+}
+
+.tag4 {
+	background-color: #E48784;
+	padding: 5px;
+}
+
+.tag5 {
+	background-color: #CA9D71;
+	padding: 5px;
+}
+
+.tag6 {
+	background-color: #FF9147;
+	padding: 5px;
+}
+
+.tag1 a, .tag2 a, .tag3 a, .tag4 a, .tag5 a, .tag6 a {
+	color: white;
+	text-decoration: none;
+}
+
+.tag1:hover {
+	background-color: #272727;
+}
+
+.tag2:hover {
+	background-color: #009688;
+}
+
+.tag3:hover {
+	background-color: #00FF00;
+}
+
+.tag4:hover {
+	background-color: #CC3333;
+}
+
+.tag5:hover {
+	background-color: #CC6600;
+}
+
+.tag6:hover {
+	background-color: #FF6600;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+.modal-content
+{	
+    padding:10px;
+
+}

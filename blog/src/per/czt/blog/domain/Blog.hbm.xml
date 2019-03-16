@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 映射文件需要dtd指定格式 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="per.czt.blog.domain">
+	<class name="Blog" lazy="true" table="blog">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="increment"></generator>
+		</id>
+		<property name="title" type="java.lang.String">
+			<column name="title"  />
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="content"  />
+		</property>
+		<many-to-one name="blogsort" column="blogsortId"/>
+	
+		<property name="publishDate" type="java.util.Date">
+			<column name="publishDate"  />
+		</property>
+		<many-to-one name="usertag" column="usertagId"/>
+		<set name="blogcomments" >
+			
+			<key>
+				<column name="blogId"/>
+			</key>
+			<one-to-many class="Blogcomment"/>
+		</set>
+		<set name="blogagrees" >
+			
+			<key>
+				<column name="blogId"/>
+			</key>
+			<one-to-many class="Blogagree"/>
+		</set>
+		
+	
+	
+		
+	</class>
+
+</hibernate-mapping>

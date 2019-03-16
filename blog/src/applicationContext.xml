@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!-- 在容器文件中配置bean(domain/dao/service/action/数据源) -->
+	<!-- 当spring框架加载时spring会自动创建一个bean -->
+	<!-- 测试spring -->
+	<!-- <bean id="testService" class="com.xiaonei.test.TestService" > <property 
+		name="name" value="测试"/> </bean> -->
+
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/blog?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8" />
+		<!-- 连接池启动时的初始值 -->
+		<property name="initialSize" value="3" />
+		<!-- 连接池的最大值 -->
+		<!--<property name="maxActive" value="500"/> -->
+		<!-- 最大空闲值,当经过一个高峰时间后，连接池可以慢慢已经用不到的连接释放一部分 -->
+		<property name="maxIdle" value="2" />
+		<!-- 最小空闲值，当空闲的连接数小于阈值时，连接池会预申请一些连接，以免洪峰来时 -->
+		<property name="minIdle" value="1" />
+	</bean>
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 设置数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 接管hibernate的对象关系映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>per/czt/blog/test/Test.hbm.xml</value>
+				<value>per/czt/blog/domain/Country.hbm.xml</value>
+				<value>per/czt/blog/domain/Province.hbm.xml</value>
+				<value>per/czt/blog/domain/City.hbm.xml</value>
+				<value>per/czt/blog/domain/Users.hbm.xml</value>
+				<value>per/czt/blog/domain/Message.hbm.xml</value>
+				<value>per/czt/blog/domain/Messagecommentrely.hbm.xml</value>
+				<value>per/czt/blog/domain/Blog.hbm.xml</value>
+				<value>per/czt/blog/domain/Blogagree.hbm.xml</value>
+				<value>per/czt/blog/domain/Blogcomment.hbm.xml</value>
+				<value>per/czt/blog/domain/Blogcommentrely.hbm.xml</value>
+				<value>per/czt/blog/domain/Blogsort.hbm.xml</value>
+				<value>per/czt/blog/domain/Tag.hbm.xml</value>
+				<value>per/czt/blog/domain/Note.hbm.xml</value>
+				<value>per/czt/blog/domain/Thoughts.hbm.xml</value>
+				<value>per/czt/blog/domain/Userstag.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+				<!-- hibernate.current_session_context_class=thread -->
+				<!-- hibernate.hbm2ddl.auto=create -->
+				hibernate.show_sql=true
+				<!-- hibernate.format_sql=true -->
+			</value>
+		</property>
+	</bean>
+
+	<bean id="testService" class="per.czt.blog.test.TestService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogService"
+		class="per.czt.blog.service.imp.BlogService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogsortService"
+		class="per.czt.blog.service.imp.BlogsortService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogagreeService"
+		class="per.czt.blog.service.imp.BlogagreeService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogcommentService"
+		class="per.czt.blog.service.imp.BlogcommentService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogcommentrelyService"
+		class="per.czt.blog.service.imp.BlogcommentrelyService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="cityService"
+		class="per.czt.blog.service.imp.CityService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="countryService"
+		class="per.czt.blog.service.imp.CountryService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="messageService"
+		class="per.czt.blog.service.imp.MessageService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="messagecommentrelyService"
+		class="per.czt.blog.service.imp.MessagecommentrelyService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="noteService"
+		class="per.czt.blog.service.imp.NoteService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="provinceService"
+		class="per.czt.blog.service.imp.ProvinceService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="tagService" class="per.czt.blog.service.imp.TagService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="thoughtsService"
+		class="per.czt.blog.service.imp.ThoughtsService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="usersService"
+		class="per.czt.blog.service.imp.UsersService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userstagService"
+		class="per.czt.blog.service.imp.UserstagService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 配置action -->
+	<bean name="/test" class="per.czt.blog.test.TestAction"
+		scope="prototype">
+		<property name="testService" ref="testService" />
+
+	</bean>
+	<bean name="/register"
+		class="per.czt.blog.web.actions.RegisterAction" scope="prototype">
+		<property name="usersService" ref="usersService" />
+
+	</bean>
+	<bean name="/login" class="per.czt.blog.web.actions.LoginAction"
+		scope="prototype">
+		<property name="usersService" ref="usersService" />
+		<property name="blogService" ref="blogService" />
+		<property name="blogsortService" ref="blogsortService" />
+		<property name="tagService" ref="tagService" />
+
+	</bean>
+	<bean name="/users" class="per.czt.blog.web.actions.UsersAction"
+		scope="prototype">
+		<property name="usersService" ref="usersService" />
+
+	</bean>
+	<bean name="/blog" class="per.czt.blog.web.actions.BlogAction"
+		scope="prototype">
+		<property name="usersService" ref="usersService" />
+		<property name="blogService" ref="blogService" />
+		<property name="blogsortService" ref="blogsortService" />
+		<property name="tagService" ref="tagService" />
+		<property name="userstagService" ref="userstagService" />
+	</bean>
+
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 启用注解 -->
+	<tx:annotation-driven
+		transaction-manager="txManager" />
+
+
+</beans>

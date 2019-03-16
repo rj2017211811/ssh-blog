@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC   "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"   "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="testForm" type="per.czt.blog.test.TestForm" />
+		<form-bean name="blogagreeForm"
+			type="per.czt.blog.web.forms.BlogagreeForm" />
+		<form-bean name="blogcommentForm"
+			type="per.czt.blog.web.forms.BlogcommentForm" />
+		<form-bean name="blogcommentrelyForm"
+			type="per.czt.blog.web.forms.BlogcommentrelyForm" />
+		<form-bean name="blogForm"
+			type="per.czt.blog.web.forms.BlogForm" />
+		<form-bean name="blogsortForm"
+			type="per.czt.blog.web.forms.BlogsortForm" />
+		<form-bean name="cityForm"
+			type="per.czt.blog.web.forms.CityForm" />
+		<form-bean name="countryForm"
+			type="per.czt.blog.web.forms.CountryForm" />
+		<form-bean name="messagecommentrelyForm"
+			type="per.czt.blog.web.forms.MessagecommentrelyForm" />
+		<form-bean name="messageForm"
+			type="per.czt.blog.web.forms.messageForm" />
+		<form-bean name="noteForm"
+			type="per.czt.blog.web.forms.NoteForm" />
+		<form-bean name="provinceForm"
+			type="per.czt.blog.web.forms.ProvinceForm" />
+		<form-bean name="tagForm"
+			type="per.czt.blog.web.forms.TagForm" />
+		<form-bean name="thoughtsForm"
+			type="per.czt.blog.web.forms.ThoughtsForm" />
+		<form-bean name="usersForm"
+			type="per.czt.blog.web.forms.UsersForm" />
+	</form-beans>
+	<action-mappings>
+
+		<action path="/test" name="testForm">
+		</action>
+		<action path="/register" name="usersForm" parameter="flag">
+
+		</action>
+		<action path="/login" name="usersForm" parameter="flag">
+			
+		</action>
+		<action path="/users" name="usersForm" parameter="flag">
+			<forward name="usersDetailInfo" path="/WEB-INF/users/usersDetailInfo.jsp" />
+			<forward name="timeline" path="/WEB-INF/users/timeline.jsp" />
+		</action>
+		<action path="/blog" name="blogForm" parameter="flag">
+			<forward name="writeBlog" path="/WEB-INF/users/writeBlog.jsp" />
+			
+			<forward name="articleDetail" path="/WEB-INF/users/articleDetail.jsp" />
+			<forward name="articleCategory" path="/WEB-INF/users/articleCategory.jsp" />
+			<forward name="articleTime" path="/WEB-INF/users/articleTime.jsp" />
+			<forward name="articleSearch" path="/WEB-INF/users/articleSearch.jsp" />
+		</action>
+	</action-mappings>
+
+	<!-- 配置全局跳转 -->
+	<global-forwards>
+		<forward name="users" path="/WEB-INF/users/users.jsp" />
+		
+	</global-forwards>
+
+	<!-- 配置代理请求处理 -->
+	<controller>
+		<set-property
+			value="org.springframework.web.struts.DelegatingRequestProcessor"
+			property="processorClass" />
+	</controller>
+
+
+
+</struts-config>
