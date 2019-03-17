@@ -17,10 +17,11 @@
 			type="per.czt.blog.web.forms.CityForm" />
 		<form-bean name="countryForm"
 			type="per.czt.blog.web.forms.CountryForm" />
+		<form-bean name="messageForm"
+			type="per.czt.blog.web.forms.MessageForm" />
 		<form-bean name="messagecommentrelyForm"
 			type="per.czt.blog.web.forms.MessagecommentrelyForm" />
-		<form-bean name="messageForm"
-			type="per.czt.blog.web.forms.messageForm" />
+		
 		<form-bean name="noteForm"
 			type="per.czt.blog.web.forms.NoteForm" />
 		<form-bean name="provinceForm"
@@ -42,9 +43,14 @@
 		<action path="/login" name="usersForm" parameter="flag">
 			
 		</action>
+		<action path="/message" name="messageForm" parameter="flag">
+			<forward name="messageboard" path="/WEB-INF/users/messageBoard.jsp" />
+		</action>
 		<action path="/users" name="usersForm" parameter="flag">
 			<forward name="usersDetailInfo" path="/WEB-INF/users/usersDetailInfo.jsp" />
 			<forward name="timeline" path="/WEB-INF/users/timeline.jsp" />
+			
+			<forward name="aboutAuthor" path="/WEB-INF/users/aboutAuthor.jsp" />
 		</action>
 		<action path="/blog" name="blogForm" parameter="flag">
 			<forward name="writeBlog" path="/WEB-INF/users/writeBlog.jsp" />

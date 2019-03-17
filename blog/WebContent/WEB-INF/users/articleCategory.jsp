@@ -5,7 +5,12 @@
 <html ng-app="app" lang="en">
 <head>
 <meta charset="UTF-8">
-<title>users.jsp</title>
+<title>随笔分类
+
+<c:if test="${blogList.size()>0 }">
+	-${blogList.get(0).blogsort.name }
+</c:if>
+</title>
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,user-scalable=no">
 

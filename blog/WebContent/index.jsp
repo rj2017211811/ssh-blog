@@ -16,7 +16,7 @@
 </head>
 <body>
     
-	<jsp:forward page="/WEB-INF/users/users.jsp"></jsp:forward>
+	<jsp:forward page="/WEB-INF/users/aboutAuthor.jsp"></jsp:forward>
 
 
 

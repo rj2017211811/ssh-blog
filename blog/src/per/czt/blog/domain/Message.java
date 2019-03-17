@@ -4,7 +4,10 @@ import java.util.Set;
 
 public class Message {
     private Integer id;
+    private String nickname;
+    
     private String content;
+    
     private Users host;
     private Users visited;
     private String website;
@@ -15,6 +18,13 @@ public class Message {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getContent() {
 		return content;
@@ -46,11 +56,11 @@ public class Message {
 	public void setPublishDate(java.util.Date publishDate) {
 		this.publishDate = publishDate;
 	}
-	public Set<Messagecommentrely> getMessagerelies() {
+	public Set<Messagecommentrely> getMessagecommentrelies() {
 		return messagecommentrelies;
 	}
-	public void setMessagerelies(Set<Messagecommentrely> messagecommentrelies) {
+	public void setMessagecommentrelies(Set<Messagecommentrely> messagecommentrelies) {
 		this.messagecommentrelies = messagecommentrelies;
 	}
-    
+	
 }

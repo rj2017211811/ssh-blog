@@ -8,7 +8,9 @@
 		<id name="id" column="id" type="java.lang.Integer">
 			<generator class="increment"></generator>
 		</id>
-		
+		<property name="nickname" type="java.lang.String">
+			<column name="nickname"  />
+		</property>
 		<property name="content" type="java.lang.String">
 			<column name="content"  />
 		</property>
@@ -20,7 +22,7 @@
 		<property name="publishDate" type="java.util.Date">
 			<column name="publishDate"  />
 		</property>
-		<set name="messagerelies" >
+		<set name="messagecommentrelies" >
 			
 			<key>
 				<column name="messageId"/>

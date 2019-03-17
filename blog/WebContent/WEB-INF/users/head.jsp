@@ -45,9 +45,10 @@
 						title="时光轴">时光轴</a></li>
 					<li class="dropdown"><a href="javascript:void(0);"
 						class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1">
-							关于我 </a>
+							关于作者 </a>
 						<ul class="dropdown-menu" id="dropDownCur">
-						<li><a href="#">个人简介</a></li>
+						<li><a href="${pageContext.request.contextPath }/users.do?flag=aboutAuthor">个人简介</a></li>
+						<li><a href="${pageContext.request.contextPath }/message.do?flag=goMessageBoard">留言板</a></li>
 							<li><a href="https://blog.csdn.net/rj2017211811" target="_blank">我的CSDN</a></li>
 							<li><a href="#">每日一句</a></li>
 						

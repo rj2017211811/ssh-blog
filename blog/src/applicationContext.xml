@@ -137,6 +137,8 @@
 		<property name="testService" ref="testService" />
 
 	</bean>
+	
+	
 	<bean name="/register"
 		class="per.czt.blog.web.actions.RegisterAction" scope="prototype">
 		<property name="usersService" ref="usersService" />
@@ -163,6 +165,13 @@
 		<property name="tagService" ref="tagService" />
 		<property name="userstagService" ref="userstagService" />
 	</bean>
+	<bean name="/message" class="per.czt.blog.web.actions.MessageAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService" />
+		
+	</bean>
+	
+	
 
 
 	<bean id="txManager"

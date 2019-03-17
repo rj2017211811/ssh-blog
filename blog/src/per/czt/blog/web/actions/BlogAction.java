@@ -529,6 +529,7 @@ public class BlogAction extends DispatchAction {
 				dateList3.add(blogList2.size() + "");
 			}
 			request.setAttribute("publishDate", strPublishDate);
+			
 			request.setAttribute("pageNow", pageNow);
 			request.setAttribute("pageCount", pageCount);
 			request.setAttribute("blogsortList", blogsortList);

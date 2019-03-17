@@ -123,5 +123,12 @@ public class UsersAction extends DispatchAction {
 		request.setAttribute("tipMessage", "Äú»¹Î´µÇÂ¼,ÇëÏÈÈ¥µÇÂ¼°É");
 		return mapping.findForward("users");
 	}
+	public ActionForward aboutAuthor(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		
+		return mapping.findForward("aboutAuthor");
+		
+	}
+	
 
 }
